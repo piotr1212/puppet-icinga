@@ -16,10 +16,10 @@ class icinga::config::server::common {
     ],
   }
 
-  file{$::icinga::confdir_server:
-    recurse => true,
-    purge   => true,
-  }
+#  file{$::icinga::confdir_server:
+#    recurse => true,
+#    purge   => true,
+#  }
 
   file{"${::icinga::confdir_server}/resource.cfg":
     ensure  => file,
