@@ -26,13 +26,12 @@ Status](https://travis-ci.org/Inuits/puppet-icinga.svg)](https://travis-ci.org/I
 ### cat nodes.pp
 
     node client {
-      class { 'icinga': }
+      class { 'icinga::client': }
     }
     
     node server {
       class {
-        'icinga':
-          server        => 'true',
+        'icinga::server':
           manage_repo   => 'true',
           icinga_admins => [ 'admin,', 'dummy1,', 'dummy2' ],
           plugins       => [ 'checkpuppet', 'pnp4nagios' ];

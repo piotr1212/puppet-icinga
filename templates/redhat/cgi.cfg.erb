@@ -79,7 +79,7 @@ use_logging=0
 # This is the cgi log file for information about what users are doing.
 # At the moment only submitted commands from cmd.cgi will be logged.
 
-cgi_log_file=<%= scope.lookupvar('icinga::logdir_server') -%>/gui/icinga-cgi.log
+cgi_log_file=<%= scope.lookupvar('icinga::server::logdir_server') -%>/gui/icinga-cgi.log
 
 
 # CGI LOG ROTATION METHOD
@@ -98,7 +98,7 @@ cgi_log_rotation_method=d
 # This is the directory where archived (rotated) cgi log files should be
 # placed (assuming you've chosen to do log rotation).
 
-cgi_log_archive_path=<%= scope.lookupvar('icinga::logdir_server') -%>/gui
+cgi_log_archive_path=<%= scope.lookupvar('icinga::server::logdir_server') -%>/gui
 
 
 # FORCE COMMENT
@@ -134,7 +134,7 @@ first_day_of_week=0
 # authentication (bad idea), while any other value will make them
 # use the authentication functions (the default).
 
-<% if scope.lookupvar('icinga::use_auth') %>
+<% if scope.lookupvar('icinga::server::use_auth') %>
 use_authentication=1
 <% else %>
 use_authentication=0
@@ -181,7 +181,7 @@ use_ssl_authentication=0
 # Alternatively you can specify contactgroups too, starting
 # with Icinga 1.5.0
 
-authorized_for_system_information=<%= scope.lookupvar('icinga::icinga_admins') %>
+authorized_for_system_information=<%= scope.lookupvar('icinga::server::icinga_admins') %>
 
 
 # CONFIGURATION INFORMATION ACCESS
@@ -194,7 +194,7 @@ authorized_for_system_information=<%= scope.lookupvar('icinga::icinga_admins') %
 # Alternatively you can specify contactgroups too, starting
 # with Icinga 1.5.0
 
-authorized_for_configuration_information=<%= scope.lookupvar('icinga::icinga_admins') %>
+authorized_for_configuration_information=<%= scope.lookupvar('icinga::server::icinga_admins') %>
 
 
 # SYSTEM/PROCESS COMMAND ACCESS
@@ -208,7 +208,7 @@ authorized_for_configuration_information=<%= scope.lookupvar('icinga::icinga_adm
 # Alternatively you can specify contactgroups too, starting
 # with Icinga 1.5.0
 
-authorized_for_system_commands=<%= scope.lookupvar('icinga::icinga_admins') %>
+authorized_for_system_commands=<%= scope.lookupvar('icinga::server::icinga_admins') %>
 
 
 # GLOBAL HOST/SERVICE VIEW ACCESS
@@ -222,8 +222,8 @@ authorized_for_system_commands=<%= scope.lookupvar('icinga::icinga_admins') %>
 # with Icinga 1.5.0
 
 
-authorized_for_all_services=<%= scope.lookupvar('icinga::icinga_admins') %>
-authorized_for_all_hosts=<%= scope.lookupvar('icinga::icinga_admins') %>
+authorized_for_all_services=<%= scope.lookupvar('icinga::server::icinga_admins') %>
+authorized_for_all_hosts=<%= scope.lookupvar('icinga::server::icinga_admins') %>
 
 
 # GLOBAL HOST/SERVICE COMMAND ACCESS
@@ -237,8 +237,8 @@ authorized_for_all_hosts=<%= scope.lookupvar('icinga::icinga_admins') %>
 # Alternatively you can specify contactgroups too, starting
 # with Icinga 1.5.0
 
-authorized_for_all_service_commands=<%= scope.lookupvar('icinga::icinga_admins') %>
-authorized_for_all_host_commands=<%= scope.lookupvar('icinga::icinga_admins') %>
+authorized_for_all_service_commands=<%= scope.lookupvar('icinga::server::icinga_admins') %>
+authorized_for_all_host_commands=<%= scope.lookupvar('icinga::server::icinga_admins') %>
 
 
 
@@ -443,4 +443,4 @@ lock_author_names=1
 # checkbox by default) or 1 (tick the checkbox by default).  The default
 # is 0 (leave the checkbox blank).
 
-set_expire_ack_by_default=<%= scope.lookupvar('icinga::set_expire_ack_by_default') -%>
+set_expire_ack_by_default=<%= scope.lookupvar('icinga::server::set_expire_ack_by_default') -%>

@@ -108,7 +108,7 @@ class icinga::params {
       # Icinga
       $package_client_ensure     = 'present'
       $package_server_ensure     = 'present'
-      $package_client            = [ 'nagios-nrpe', 'nagios-plugins', 'nagios-plugins-all' ]
+      $package_client            = [ 'nrpe', 'nagios-plugins', 'nagios-plugins-all' ]
       $package_server            = [ 'icinga', 'icinga-doc', 'icinga-gui', 'nagios-plugins-nrpe', 'perl-Date-Calc' ]
       $service_client            = 'nrpe'
       $service_client_ensure     = 'running'
@@ -140,7 +140,7 @@ class icinga::params {
       $htpasswd_file             = "${confdir_server}/htpasswd.users"
       $targetdir                 = "${confdir_server}/objects"
       $targetdir_contacts        = "${targetdir}/contacts/contacts.cfg"
-      $icinga_vhost              = '/etc/icinga/apache2.conf'
+      $icinga_vhost              = '/etc/httpd/conf.d/icinga.conf'
       $mail_command              = '/bin/mail'
 
       # Plugin: Icinga Web

@@ -18,7 +18,7 @@
 # for historical purposes.  This should be the first option specified
 # in the config file!!!
 
-log_file=<%= scope.lookupvar('icinga::logdir_server') -%>/icinga.log
+log_file=<%= scope.lookupvar('icinga::server::logdir_server') -%>/icinga.log
 
 
 
@@ -66,7 +66,7 @@ cfg_dir=/etc/icinga/objects
 # directly) in order to prevent inconsistencies that can occur
 # when the config files are modified after Icinga starts.
 
-object_cache_file=<%= scope.lookupvar('icinga::vardir_server') -%>/objects.cache
+object_cache_file=<%= scope.lookupvar('icinga::server::vardir_server') -%>/objects.cache
 
 
 
@@ -82,7 +82,7 @@ object_cache_file=<%= scope.lookupvar('icinga::vardir_server') -%>/objects.cache
 # Read the documentation section on optimizing Icinga to find our more
 # about how this feature works.
 
-precached_object_file=<%= scope.lookupvar('icinga::vardir_server') -%>/objects.precache
+precached_object_file=<%= scope.lookupvar('icinga::server::vardir_server') -%>/objects.precache
 
 
 
@@ -105,7 +105,7 @@ resource_file=/etc/icinga/resource.cfg
 # The contents of the status file are deleted every time Icinga
 #  restarts.
 
-status_file=<%= scope.lookupvar('icinga::vardir_server') -%>/status.dat
+status_file=<%= scope.lookupvar('icinga::server::vardir_server') -%>/status.dat
 
 
 
@@ -172,7 +172,7 @@ command_check_interval=-1
 # directory level instead of on the file, as the file is deleted every
 # time its contents are processed.
 
-command_file=<%= scope.lookupvar('icinga::vardir_server') -%>/rw/icinga.cmd
+command_file=<%= scope.lookupvar('icinga::server::vardir_server') -%>/rw/icinga.cmd
 
 
 
@@ -190,7 +190,7 @@ external_command_buffer_slots=32768
 # This is the lockfile that Icinga will use to store its PID number
 # in when it is running in daemon mode.
 
-lock_file=<%= scope.lookupvar('icinga::pidfile_server') -%>
+lock_file=<%= scope.lookupvar('icinga::server::pidfile_server') -%>
 
 
 
@@ -200,7 +200,7 @@ lock_file=<%= scope.lookupvar('icinga::pidfile_server') -%>
 # is created, used, and deleted throughout the time that Icinga is
 # running.
 
-temp_file=<%= scope.lookupvar('icinga::vardir_server') -%>/icinga.tmp
+temp_file=<%= scope.lookupvar('icinga::server::vardir_server') -%>/icinga.tmp
 
 
 
@@ -273,7 +273,7 @@ log_rotation_method=d
 # This is the directory where archived (rotated) log files should be
 # placed (assuming you've chosen to do log rotation).
 
-log_archive_path=<%= scope.lookupvar('icinga::logdir_server') -%>/archives
+log_archive_path=<%= scope.lookupvar('icinga::server::logdir_server') -%>/archives
 
 
 
@@ -495,7 +495,7 @@ max_check_result_reaper_time=30
 # Note: Make sure that only one instance of Icinga has access
 # to this directory!
 
-check_result_path=<%= scope.lookupvar('icinga::vardir_server') -%>/checkresults
+check_result_path=<%= scope.lookupvar('icinga::server::vardir_server') -%>/checkresults
 
 
 
@@ -670,7 +670,7 @@ retain_state_information=1
 # This file is used only if the retain_state_information
 # variable is set to 1.
 
-state_retention_file=<%= scope.lookupvar('icinga::vardir_server') -%>/retention.dat
+state_retention_file=<%= scope.lookupvar('icinga::server::vardir_server') -%>/retention.dat
 
 
 
@@ -696,7 +696,7 @@ state_retention_file=<%= scope.lookupvar('icinga::vardir_server') -%>/retention.
 # If the file does not exist, no error will appear.
 # There is also an API that will force a read of the sync file.
 
-#sync_retention_file=<%= scope.lookupvar('icinga::vardir_server') -%>/sync.dat
+#sync_retention_file=<%= scope.lookupvar('icinga::server::vardir_server') -%>/sync.dat
 
 
 
@@ -888,7 +888,7 @@ process_performance_data=1
 #service_perfdata_file=/tmp/service-perfdata
 
 host_perfdata_file=/usr/local/pnp4nagios/var/host-perfdata
-service_perfdata_file=<%= scope.lookupvar('icinga::service_perfdata_file') %>
+service_perfdata_file=<%= scope.lookupvar('icinga::server::service_perfdata_file') %>
 
 
 
@@ -905,7 +905,7 @@ service_perfdata_file=<%= scope.lookupvar('icinga::service_perfdata_file') %>
 
 
 host_perfdata_file_template=DATATYPE::HOSTPERFDATA\tTIMET::$TIMET$\tHOSTNAME::$HOSTNAME$\tHOSTPERFDATA::$HOSTPERFDATA$\tHOSTCHECKCOMMAND::$HOSTCHECKCOMMAND$\tHOSTSTATE::$HOSTSTATE$\tHOSTSTATETYPE::$HOSTSTATETYPE$
-service_perfdata_file_template=<%= scope.lookupvar('icinga::service_perfdata_file_template') %>
+service_perfdata_file_template=<%= scope.lookupvar('icinga::server::service_perfdata_file_template') %>
 
 # HOST AND SERVICE PERFORMANCE DATA FILE MODES
 # This option determines whether or not the host and service
@@ -926,7 +926,7 @@ service_perfdata_file_mode=a
 # processed.
 
 host_perfdata_file_processing_interval=15
-service_perfdata_file_processing_interval=<%= scope.lookupvar('icinga::service_perfdata_file_processing_interval') %>
+service_perfdata_file_processing_interval=<%= scope.lookupvar('icinga::server::service_perfdata_file_processing_interval') %>
 
 
 
@@ -936,7 +936,7 @@ service_perfdata_file_processing_interval=<%= scope.lookupvar('icinga::service_p
 # processing occurs is determined by the options above.
 
 host_perfdata_file_processing_command=process-host-perfdata-file
-service_perfdata_file_processing_command=<%= scope.lookupvar('icinga::process_service_perfdata_file') %>
+service_perfdata_file_processing_command=<%= scope.lookupvar('icinga::server::process_service_perfdata_file') %>
 
 
 
@@ -1169,7 +1169,7 @@ date_format=us
 # Icinga with embedded Perl support, this option has no effect.
 
 #p1_file=/usr/bin/p1.pl
-p1_file=<%= scope.lookupvar('icinga::usrlib') %>/icinga/p1.pl
+p1_file=<%= scope.lookupvar('icinga::server::usrlib') %>/icinga/p1.pl
 
 
 
@@ -1361,7 +1361,7 @@ debug_verbosity=1
 # DEBUG FILE
 # This option determines where Icinga should write debugging information.
 
-debug_file=<%= scope.lookupvar('icinga::logdir_server') -%>/icinga.debug
+debug_file=<%= scope.lookupvar('icinga::server::logdir_server') -%>/icinga.debug
 
 
 
